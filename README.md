@@ -1,6 +1,6 @@
-Welcome to your new TanStack app! 
+# Social media app
 
-# Getting Started
+## Getting Started
 
 To run this application:
 
@@ -9,7 +9,7 @@ pnpm install
 pnpm start
 ```
 
-# Building For Production
+## Building For Production
 
 To build this application for production:
 
@@ -17,7 +17,7 @@ To build this application for production:
 pnpm run build
 ```
 
-## Testing
+### Testing
 
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
@@ -25,12 +25,12 @@ This project uses [Vitest](https://vitest.dev/) for testing. You can run the tes
 pnpm run test
 ```
 
-## Styling
+### Styling
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 
-## Linting & Formatting
+### Linting & Formatting
 This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
 
 ```bash
@@ -42,7 +42,7 @@ pnpm run check # runs both lint and format together
 
 
 
-## Routing
+### Routing
 This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as fiels in `src/routes`.
 
 ### Adding A Route

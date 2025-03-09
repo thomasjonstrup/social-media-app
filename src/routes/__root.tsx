@@ -6,24 +6,11 @@ import {
 	createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import type { JSX } from "react";
 
-export const Route = createRootRouteWithContext<{
-	queryClient: QueryClient;
-}>()({
-	component: RootComponent,
-	notFoundComponent: () => {
-		return (
-			<div>
-				<p>This is the notFoundComponent configured on root route</p>
-				<Link to="/">Start Over</Link>
-			</div>
-		);
-	},
-});
-
-function RootComponent() {
+const RootComponent = (): JSX.Element => {
 	return (
-		<>
+		<div className="min-h-screen transition-opacity duration-700 pt-4 justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
 			<div className="p-2 flex gap-2 text-lg">
 				<Link
 					to="/"
@@ -61,9 +48,25 @@ function RootComponent() {
 				</Link>
 			</div>
 			<hr />
-			<Outlet />
-			<ReactQueryDevtools buttonPosition="top-right" />
+			<div className="container mx-auto px-4 py-6">
+				<Outlet />
+			</div>
+			<ReactQueryDevtools buttonPosition="bottom-left" />
 			<TanStackRouterDevtools position="bottom-right" />
-		</>
+		</div>
 	);
-}
+};
+
+export const Route = createRootRouteWithContext<{
+	queryClient: QueryClient;
+}>()({
+	component: RootComponent,
+	notFoundComponent: () => {
+		return (
+			<div>
+				<p>This is the notFoundComponent configured on root route</p>
+				<Link to="/">Start Over</Link>
+			</div>
+		);
+	},
+});

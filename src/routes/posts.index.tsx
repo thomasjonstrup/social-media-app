@@ -4,9 +4,13 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 
 const PostIndexComponent = () => {
-	const postsQuery = useSuspenseQuery(postsQueryOptions);
+	const { data, isLoading } = useSuspenseQuery(postsQueryOptions);
 
-	const posts = postsQuery.data;
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
+	const posts = data;
 
 	return <PostList posts={posts} />;
 };

@@ -11,9 +11,13 @@ export const Route = createFileRoute("/posts/$postId")({
 
 function RouteComponent() {
 	const postId = Route.useParams().postId;
-	const postQuery = useSuspenseQuery(postQueryOptions(postId));
+	const { data, isLoading } = useSuspenseQuery(postQueryOptions(postId));
 
-	const post = postQuery.data;
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
+	const post = data;
 
 	return (
 		<div>

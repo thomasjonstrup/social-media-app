@@ -1,9 +1,9 @@
 import { PostList } from "@/components/PostList";
 import { postsQueryOptions } from "@/postsQueryOptions";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
-const Home = () => {
+const PostIndexComponent = () => {
 	const postsQuery = useSuspenseQuery(postsQueryOptions);
 
 	const posts = postsQuery.data;
@@ -11,8 +11,8 @@ const Home = () => {
 	return <PostList posts={posts} />;
 };
 
-export const Route = createFileRoute("/")({
-	component: Home,
+export const Route = createFileRoute("/posts/")({
+	component: PostIndexComponent,
 	loader: ({ context: { queryClient } }) => {
 		return queryClient.ensureQueryData(postsQueryOptions);
 	},

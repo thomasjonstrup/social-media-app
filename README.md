@@ -1,5 +1,7 @@
 # Social media app
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/192b1d42-e13a-4790-92a8-473d0f94c050/deploy-status)](https://app.netlify.com/sites/social-media-app-thozial/deploys)
+
 ## Getting Started
 
 To run this application:
